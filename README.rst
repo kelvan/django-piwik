@@ -40,6 +40,7 @@ Author
 ------
 
 Copyright 2013 Raphael Jasjukaitis <webmaster@raphaa.de>
+Copyright 2015 Jørn Åne de Jong <jornane@uninett.no>
 
 
 Released under the BSD license.
