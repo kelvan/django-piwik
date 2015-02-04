@@ -1,4 +1,5 @@
 <!-- Piwik --> 
+{% if url and id %}
 <script type="text/javascript">
   var _paq = _paq || [];
   _paq.push(['trackPageView']);
@@ -12,4 +13,7 @@
   })();
 </script>
 <noscript><p><img src="https://{{ url }}piwik.php?idsite={{ id }}" style="border:0;" alt="" /></p></noscript>
+{% elif error %}
+<!-- {{ error }} -->
+{% endif %}
 <!-- End Piwik Tracking Code -->
