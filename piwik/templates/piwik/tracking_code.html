@@ -1,4 +1,4 @@
-<!-- Piwik --> 
+<!-- Piwik -->
 {% if url and id %}
 <script type="text/javascript">
   var _paq = _paq || [];
@@ -12,7 +12,7 @@
   g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
   })();
 </script>
-<noscript><p><img src="https://{{ url }}piwik.php?idsite={{ id }}" style="border:0;" alt="" /></p></noscript>
+<noscript><p><img src="https://{{ url }}/piwik.php?idsite={{ id }}" style="border:0;" alt="" /></p></noscript>
 {% elif error %}
 <!-- {{ error }} -->
 {% endif %}
