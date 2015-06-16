@@ -9,8 +9,7 @@ from django.conf import settings
 register = template.Library()
 
 
-@register.inclusion_tag('piwik/tracking_code.html')
-def tracking_code():
+def _tracking_code():
     if settings.DEBUG:
         return {'error': 'DEBUG mode'}
     try:
@@ -26,3 +25,13 @@ def tracking_code():
         logging.error(error)
         return {'error': error}
     return {'id': id_, 'url': url}
+
+
+@register.inclusion_tag('piwik/tracking_code.html')
+def tracking_code():
+    return _tracking_code()
+
+
+@register.inclusion_tag('piwik/tracking_code_404.html')
+def tracking_code_404():
+    return _tracking_code()
