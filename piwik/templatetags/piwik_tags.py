@@ -23,6 +23,6 @@ def tracking_code():
         url = settings.PIWIK_URL
     except AttributeError:
         error = 'PIWIK_URL does not exist.'
-        logging.error()
+        logging.error(error)
         return {'error': error}
     return {'id': id_, 'url': url}
