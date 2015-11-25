@@ -1,10 +1,12 @@
 import os
 
 from setuptools import setup, find_packages
+from piwik import __version__
+
 
 setup(
     name='django-piwik',
-    version='0.2',
+    version=__version__,
     description='A simple app to add the Piwik JS tracking code to your template.',
     long_description=open(os.path.join(os.path.dirname(__file__), 'README.rst')).read(),
     author='Raphael Jasjukaitis, Jørn Åne de Jong',
