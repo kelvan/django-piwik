@@ -9,6 +9,13 @@
       var u="//{{ url }}/";
       _paq.push(['setTrackerUrl', u+'piwik.php']);
       _paq.push(['setSiteId', {{ id }}]);
+      {% if cookiedomain %}
+        {% comment %}
+          https://developer.piwik.org/guides/tracking-javascript-guide#cookie-configuration
+        {% endcomment %}
+        _paq.push(['setCookieDomain', '{{ cookiedomain }}']);
+        _paq.push(['setDomains', '{{ cookiedomain }}']);
+      {% endif %}
       var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0]; g.type='text/javascript';
       g.defer=true; g.async=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
       })();

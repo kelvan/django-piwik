@@ -10,21 +10,22 @@ register = template.Library()
 
 
 def _tracking_code():
-    if settings.DEBUG:
+    if getattr(settings, 'DEBUG', True):
         return {'error': 'DEBUG mode'}
-    try:
-        id_ = settings.PIWIK_SITE_ID
-    except AttributeError:
+
+    id_ = getattr(settings, 'PIWIK_SITE_ID', None)
+    if id_ is None:
         error = 'PIWIK_SITE_ID does not exist.'
         logging.error(error)
         return {'error': error}
-    try:
-        url = settings.PIWIK_URL
-    except AttributeError:
+    url = getattr(settings, 'PIWIK_URL', None)
+    if url is None:
         error = 'PIWIK_URL does not exist.'
         logging.error(error)
         return {'error': error}
-    return {'id': id_, 'url': url}
+
+    domain = getattr(settings, 'PIWIK_DOMAIN', None)
+    return {'id': id_, 'url': url, 'cookiedomain': domain}
 
 
 @register.inclusion_tag('piwik/tracking_code.html')
