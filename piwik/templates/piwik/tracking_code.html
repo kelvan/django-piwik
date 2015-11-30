@@ -9,6 +9,7 @@
       var u="//{{ url }}/";
       _paq.push(['setTrackerUrl', u+'piwik.php']);
       _paq.push(['setSiteId', {{ id }}]);
+      _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
       {% if cookiedomain %}
         {% comment %}
           https://developer.piwik.org/guides/tracking-javascript-guide#cookie-configuration
